@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>app-gemini</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <h3>Upload Image</h3>
+    <div class="drop_box">
+      <header>
+        <h4>Select Image here</h4>
+      </header>
+      <p>Supported Formats: JPG, JPEG, PNG, GIF</p>
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/jpeg, image/jpg, image/png, image/gif" id="imageID">
+        <button type="submit" class="btn">Upload</button>
+      </form>
+    </div>
+  </div>
+  <div id="response_box">
+    <!-- Response will be displayed here -->
+  </div>
+</div>
+</body>
+</html>

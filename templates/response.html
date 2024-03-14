@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>app-gemini-response</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <h3>What the image is about</h3>
+    <div class="response-box">
+      <p>
+        {% for line in explanation.split('\n') %}
+          {{ line }}<br> <!-- Add a line break after each line -->
+        {% endfor %}
+      </p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
