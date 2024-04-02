@@ -1,4 +1,4 @@
-```markdown
+
 # SnapPrompt
 
 SnapPrompt is an innovative image-to-text generator that leverages cutting-edge generative AI algorithms to revolutionize image understanding. This repository contains the source code and resources for SnapPrompt.
@@ -32,4 +32,3 @@ Contributions to SnapPrompt are welcome! Whether you want to report a bug, sugge
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
