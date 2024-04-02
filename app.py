@@ -1,9 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
-import google.generativeai as genai
 from PIL import Image
 from io import BytesIO
-from gemini_vision_pro import gemini_vision
+from SnapPrompt import snap, internal
 app = Flask(__name__)
 
 ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'gif'}
@@ -25,13 +24,10 @@ def upload_file():
         return redirect(request.url)
     if file and allowed_file(file.filename):
         image = Image.open(BytesIO(file.read()))
-        genai.configure(api_key= gemini_vision)  
-        model = genai.GenerativeModel('gemini-pro-vision')
         
-        # Generate explanation for the image
-        response_explanation = model.generate_content([
-            image,
-            "Please explain this image to me and give me the prompt to generate similar images in stable diffusion based on this image."
+        # Generate explanation for the image using snap
+        response_explanation = snap.generate_content([
+            image, internal
         ])
         explanation = response_explanation.candidates[0].content.parts[0].text
         
